@@ -11,27 +11,27 @@ function CarModel({ num, rotate, width, height, id, scrollY }: { num: number, ro
   const [loading, setloading] = useState(true)
   const carRef=useRef<Mesh>(null!)
 
-  useFrame(()=>{
-    if(carRef.current){
-      carRef.current.position.x= scrollY / 300
-      carRef.current.position.y= scrollY / 1000
-    }
-  })
-  const gltf = useGLTF("free_1975_porsche_911_930_turbo.glb");
-  setloading(false);
-  // function Model({ car }: { car: string }) {
-  //   const gltf = useGLTF("free_1975_porsche_911_930_turbo.glb");  //Supabase :- `${process.env.NEXT_PUBLIC_SUPABASE_URL + car}`
-  //   setloading(false);
-  //   return <primitive ref={carRef} object={gltf.scene} scale={[2, 2, 2]} position={[0, -2, 0]} />;
-  // }
+  // useFrame(()=>{
+  //   if(carRef.current){
+  //     carRef.current.position.x= scrollY / 300
+  //     carRef.current.position.y= scrollY / 1000
+  //   }
+  // })
+  // const gltf = useGLTF("free_1975_porsche_911_930_turbo.glb");
+  // setloading(false);
+  function Model({ car }: { car: string }) {
+    const gltf = useGLTF("free_1975_porsche_911_930_turbo.glb");  //Supabase :- `${process.env.NEXT_PUBLIC_SUPABASE_URL + car}`
+    setloading(false);
+    return <primitive ref={carRef} object={gltf.scene} scale={[2, 2, 2]} position={[0, -2, 0]} />;
+  }
 
-  // useGLTF.preload(`${process.env.NEXT_PUBLIC_SUPABASE_URL}${cars[0]}`);
+  useGLTF.preload(`${process.env.NEXT_PUBLIC_SUPABASE_URL}${cars[0]}`);
   return (
     <Canvas id={id} style={{ width, height }} camera={{ position: [0, 0, 10] }}>
       <directionalLight position={[-1, 10, 4]} intensity={5} />
       <ambientLight intensity={7} />
-      <primitive ref={carRef} object={gltf.scene} scale={[2, 2, 2]} position={[0, -2, 0]} />
-      {/* <Model car={cars[num]} /> */}
+      {/* <primitive ref={carRef} object={gltf.scene} scale={[2, 2, 2]} position={[0, -2, 0]} /> */}
+      <Model car={cars[num]} />
       <OrbitControls autoRotate={rotate} maxPolarAngle={Math.PI / 2} minPolarAngle={Math.PI / 2} enableZoom={false} />
     </Canvas>)
 }
