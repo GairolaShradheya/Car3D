@@ -118,5 +118,3 @@ export const carDetails: CarDetails[] = [
     origin: "Germany",
   },
 ];
-
-
