@@ -7,8 +7,8 @@ function Navbar() {
                 <div className="text-2xl font-bold text-red-500">Car3D</div>
                 <nav className="space-x-6 text-sm uppercase tracking-wide font-bold">
                     <a href="#home" className="hover:text-red-400 transition">Home</a>
-                    <a href="#models" className="hover:text-red-400 transition">Models</a>
-                    <a href="#gallery" className="hover:text-red-400 transition">Gallery</a>
+                    <a href="Cars/1" className="hover:text-red-400 transition">Models</a>
+                    {/* <a href="#gallery" className="hover:text-red-400 transition">Gallery</a> */}
                     <a href="#about" className="hover:text-red-400 transition">About</a>
                     <a href="#contact" className="hover:text-red-400 transition">Contact</a>
                 </nav>
