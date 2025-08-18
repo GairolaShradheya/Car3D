@@ -1,23 +1,16 @@
 "use client"
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Car from "./Car";
+import Panel from "./panel";
 gsap.registerPlugin(ScrollTrigger);
 import { carDetails } from "./carDetails";
+import Footer from "./footer";
 
 export default function Main() {
-    const [scrollY, setscrollY] = useState(0)
-    useEffect(() => {
-      const handlescroll = ()=>{
-        setscrollY(window.scrollY)
-      }
-      window.addEventListener("scroll",handlescroll);
-      return ()=> window.removeEventListener("scroll",handlescroll);
-    }, [])
-    
 
-    let animate = (id: string, trig: string, from: object, to: object, delay?: number,scrub?: boolean, start?: string, end?:string) => {
+    const animate = (id: string, trig: string, from: object, to: object, delay?: number,scrub?: boolean, start?: string, end?:string) => {
         gsap.fromTo(
             id,
             from,
@@ -38,8 +31,10 @@ export default function Main() {
     useEffect(() => {
         animate("#hero-title", "#hero-section", { y: 100, opacity: 0 }, { y: 0, opacity: 1 }, 0.8);
         animate("#hero-subtitle", "#hero-section", { y: 100, opacity: 0, duration: 1, ease: "power3.out" }, { y: 0, opacity: 1 },0.4);
-        animate("#car", "#details-section", { x:0, y: 0 }, { x:"30vw", y: "30vh" }, 0,true, "top 20%","bottom bottom");
-        animate("#detail", "#car", { x: -900, opacity: 0 }, { x: 0, opacity: 1 }, 0,true, "bottom bottom");
+        animate("#car", "#details-section", { x:0, y: 0 }, { x:"26vw", y: "30vh" }, 0,true, "top 20%","bottom bottom");
+        animate("#detail", "#car", { x: -500, opacity: 0 }, { x: -50, opacity: 1 }, 0,true, "top 10%");
+        animate(".q1", "#quote", { x: -500, opacity: 0 }, { x: -50, opacity: 1 }, 0,true, "top bottom");
+        animate("#panel", "#panel", { y: 100, opacity: 0 }, { y: 0, opacity: 1 }, 0,true,"top 90%");
     }, []);
 
     return (
@@ -58,7 +53,13 @@ export default function Main() {
                     </div>
                     <Car id="car" num={0} height="50vh" width="38vw" rotate={true} />
                 </div>
+                <div id="quote" className="mt-[50vh] mb-[15vh] w-full flex flex-col items-center justify-center">
+                    <h2 className="q1 text-4xl font-bold">"Let the wind be your ride and the Earth your guide"</h2>
+                    <h2 className="q1 text-3xl font-bold">Let's explore more cars.</h2>
+                </div>
+                <Panel id="panel"/>
             </section>
+            <Footer/>
         </>
     )
 }
