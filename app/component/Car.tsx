@@ -11,16 +11,8 @@ function CarModel({ num, rotate, width, height, id }: { num: number, rotate?: bo
   const [connection, setconnection] = useState(true)
   function Model({ car }: { car: string }) {
     const gltf = useGLTF(`${process.env.NEXT_PUBLIC_SUPABASE_URL + car}`);  //"https://buezrsamxmomerbwqmwy.supabase.co/storage/v1/object/public/cars/free_1975_porsche_911_930_turbo.glb" 
+    setconnection(gltf ? true : false);
     return <primitive object={gltf.scene} scale={[2.8, 2.8, 2.8]} position={[0, -2, 0]} />;
-    // try{
-    //   setconnection(true);
-    //   const gltf = useGLTF(`${process.env.NEXT_PUBLIC_SUPABASE_URL + car}`);  //"https://buezrsamxmomerbwqmwy.supabase.co/storage/v1/object/public/cars/free_1975_porsche_911_930_turbo.glb" 
-    //   return <primitive object={gltf.scene} scale={[2.8, 2.8, 2.8]} position={[0, -2, 0]} />;
-    // }
-    // catch(err){
-    //   setconnection(false)
-    //   console.error("Error loading model:", err);
-    // }
   }
 
   useGLTF.preload(`${process.env.NEXT_PUBLIC_SUPABASE_URL}${cars[num]}`);

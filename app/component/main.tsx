@@ -32,7 +32,7 @@ export default function Main() {
         animate("#hero-title", "#hero-section", { y: 100, opacity: 0 }, { y: 0, opacity: 1 }, 0.8);
         animate("#hero-subtitle", "#hero-section", { y: 100, opacity: 0, duration: 1, ease: "power3.out" }, { y: 0, opacity: 1 },0.4);
         animate("#car", "#details-section", { x:0, y: 0 }, { x:"26vw", y: "30vh" }, 0,true, "top 20%","bottom bottom");
-        animate("#detail", "#car", { x: -500, opacity: 0 }, { x: -50, opacity: 1 }, 0,true, "top 10%");
+        animate("#detail", "#car", { x: -500, opacity: 0 }, { x: -100, opacity: 1 }, 0,true, "top 50%","bottom 50%");
         animate(".q1", "#quote", { x: -500, opacity: 0 }, { x: -50, opacity: 1 }, 0,true, "top bottom");
         animate("#panel", "#panel", { y: 100, opacity: 0 }, { y: 0, opacity: 1 }, 0,true,"top 90%");
     }, []);
@@ -54,9 +54,9 @@ export default function Main() {
                     <Car id="car" num={0} height="50vh" width="38vw" rotate={true} />
                 </div>
                 <div id="quote" className="mt-[50vh] mb-[15vh] w-full flex flex-col items-center justify-center">
-                    <h2 className="q1 text-4xl font-bold">"Let the wind be your ride and the Earth your guide"</h2>
-                    <h2 className="q1 text-3xl font-bold">Let's explore more cars.</h2>
-                </div>
+                    <h2 className="q1 text-4xl font-bold">Let the wind be your ride and the Earth your guide</h2>
+                    <h2 className="q1 text-3xl font-bold">Let us explore more cars.</h2>
+                </div> us
                 <Panel id="panel"/>
             </section>
             <Footer/>

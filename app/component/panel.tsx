@@ -14,7 +14,7 @@ const Panel = ({id}:{id:string}) => {
 }, []);
     
     return (
-        <div id={id} className="w-[100%] h-[30vh] my-[5vh] flex justify-around items-center bg-gray-500">
+        <div id={id} className="w-[100%] h-[30vh] my-[5vh] mb-[10vh] flex justify-around items-center ">
             <Link href={`${process.env.NEXT_PUBLIC_URL}Cars/${index+1}`} className="w-[25vw]">
                 <img src={cars[index]}></img>
             </Link>
